@@ -92,6 +92,7 @@ app.get('/api/animals/:id', (req, res) => {
 app.post('/api/animals', (req, res) => {
     req.body.id = animals.length.toString();
 
+    console.log(req.body);    
     if (!validateAnimal(req.body)) {
         res.status(400).send('The animal is not properly formatted.');
     } else {

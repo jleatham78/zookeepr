@@ -1,9 +1,11 @@
-const { join } = require("path");
+
 
 const $animalForm = document.querySelector('#animal-form');
 
 const handleAnimalFormSubmit = event => {
   event.preventDefault();
+
+  console.log("hey what up")
 
   // get animal data and organize it
   const name = $animalForm.querySelector('[name="animal-name"]').value;
@@ -27,6 +29,8 @@ const handleAnimalFormSubmit = event => {
     personalityTraits.push(selectedTraits[i].value);
   }
   const animalObject = { name, species, diet, personalityTraits };
+
+  console.log({ animalObject })
 
   fetch('/api/animals', {
     method: 'POST',
